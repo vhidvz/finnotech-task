@@ -1,3 +1,14 @@
 {
-  "cSpell.words": ["Finnotech", "nestjs", "Vahid"]
+  "cSpell.words": [
+    "Finnotech",
+    "nestjs",
+    "ntegral",
+    "opentelemetry",
+    "OTLP",
+    "QLJSON",
+    "SEMRESATTRS",
+    "Vahid",
+    "wenex",
+    "Zipkin"
+  ]
 }

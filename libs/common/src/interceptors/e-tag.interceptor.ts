@@ -1,6 +1,5 @@
 import type { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
 import { HttpStatus, Injectable } from '@nestjs/common';
-import { GqlContextType } from '@nestjs/graphql';
 import { Request, Response } from 'express';
 import type { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,8 +12,8 @@ export class ETagInterceptor implements NestInterceptor {
   private readonly log = logger(ETagInterceptor.name);
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    const type = context.getType<GqlContextType>();
-    if (!['graphql', 'http'].includes(type)) throw new Error('Unknown etag interceptor context type');
+    const type = context.getType();
+    if (!['http'].includes(type)) throw new Error('Unknown etag interceptor context type');
 
     const req = getRequest<Request>(context);
     const res = getResponse<Response>(context);

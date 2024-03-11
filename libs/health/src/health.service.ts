@@ -8,10 +8,10 @@ import {
 } from '@nestjs/terminus';
 import { RedisOptions, Transport } from '@nestjs/microservices';
 import { Inject, Injectable } from '@nestjs/common';
+import { REDIS_CONFIG } from '@app/common/configs';
 
 import { HEALTH_CHECK_OPTIONS } from './health.const';
 import { Check, HealthCheckOptions } from './health.type';
-import { REDIS_CONFIG } from '@app/common/configs';
 
 @Injectable()
 export class HealthService {

@@ -1,5 +1,4 @@
 import type { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
-import { GqlContextType } from '@nestjs/graphql';
 import { Injectable } from '@nestjs/common';
 import type { Observable } from 'rxjs';
 import { Response } from 'express';
@@ -9,7 +8,7 @@ import { getResponse } from '../utils';
 @Injectable()
 export class XPoweredByInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    const type = context.getType<GqlContextType>();
+    const type = context.getType();
     if (!['graphql', 'http'].includes(type)) throw new Error('Unknown powered by interceptor context type');
 
     const res = getResponse<Response>(context);

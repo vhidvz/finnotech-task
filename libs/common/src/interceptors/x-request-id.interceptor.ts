@@ -14,9 +14,7 @@ export class XRequestIdInterceptor implements NestInterceptor {
 
     const xRequestId = req.headers['x-request-id'] || crypto.randomUUID();
 
-    this.log
-      .get(this.intercept.name)
-      .info(date(`request received with request id: ${xRequestId}`));
+    this.log.get(this.intercept.name).info(date(`request received with request id: ${xRequestId}`));
 
     set(req.headers, 'x-request-id', xRequestId);
     req.res.setHeader('x-request-id', xRequestId);

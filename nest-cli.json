@@ -4,7 +4,17 @@
   "sourceRoot": "src",
   "compilerOptions": {
     "deleteOutDir": true,
-    "webpack": true
+    "webpack": true,
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "options": {
+          "introspectComments": true,
+          "classValidatorShim": false,
+          "dtoFileNameSuffix": [".dto.ts", ".serializer.ts"]
+        }
+      }
+    ]
   },
   "projects": {
     "command": {

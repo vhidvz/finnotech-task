@@ -42,6 +42,5 @@ async function bootstrap() {
   console.log(`Prometheus is running on ${url}/metrics`);
   console.log(`Health check is running on ${url}/status`);
   console.log(`OpenApi Spec is running on: ${url}/api-json`);
-  console.log(`GraphQL playground is running on: ${url}/graphql`);
 }
 bootstrap();

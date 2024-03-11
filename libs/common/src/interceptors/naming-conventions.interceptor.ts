@@ -1,6 +1,5 @@
 import type { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
 import { Modeler, NamingConvention } from 'naming-conventions-modeler';
-import { GqlContextType, GqlExecutionContext } from '@nestjs/graphql';
 import { Injectable } from '@nestjs/common';
 import type { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,14 +11,9 @@ export class NamingConventionsInterceptor implements NestInterceptor {
   private readonly log = logger(NamingConventionsInterceptor.name);
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    const type = context.getType<GqlContextType>();
+    const type = context.getType();
 
     switch (type) {
-      case 'graphql': {
-        const { req } = GqlExecutionContext.create(context).getContext();
-        set(req.headers, 'x-naming-convention', 'snake_case');
-        return next.handle();
-      }
       case 'http': {
         const req = context.switchToHttp().getRequest();
         const res = context.switchToHttp().getResponse();

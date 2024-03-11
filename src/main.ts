@@ -37,10 +37,10 @@ async function bootstrap() {
   await app.listen(process.env.PORT || 3000);
 
   const url = await app.getUrl();
-  console.log(`Application Successfully Started`);
+  console.log(`Application Started Successfully`);
   console.log(`Swagger UI is running on: ${url}/api`);
-  console.log(`Prometheus is running on ${url}/metrics`);
-  console.log(`Health check is running on ${url}/status`);
+  console.log(`Prometheus is running on: ${url}/metrics`);
+  console.log(`Health check is running on: ${url}/status`);
   console.log(`OpenApi Spec is running on: ${url}/api-json`);
 }
 bootstrap();

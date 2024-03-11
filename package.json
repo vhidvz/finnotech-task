@@ -17,7 +17,16 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "command": "node -r tsconfig-paths/register -r ts-node/register libs/command/src/main.ts",
+    "command:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register libs/command/src/main.ts",
+    "db:clean": "npm run command -- db clean",
+    "db:seed": "npm run command -- db seed",
+    "db:debug": "npm run command:debug -- db",
+    "mysql:drop": "npm run command -- mysql drop",
+    "mysql:seed": "npm run command -- mysql seed",
+    "mysql:debug": "npm run command:debug -- mysql",
+    "doc": "npx compodoc -p tsconfig.json -n \"Documentation\" -d ./docs -s"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.3",
@@ -46,6 +55,7 @@
     "log": "^6.3.1",
     "log-node": "^8.0.3",
     "naming-conventions-modeler": "^1.4.4",
+    "nest-commander": "^3.12.5",
     "reflect-metadata": "^0.2.1",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20"

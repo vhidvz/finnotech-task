@@ -29,8 +29,10 @@
     "doc": "npx compodoc -p tsconfig.json -n \"Documentation\" -d ./docs -s"
   },
   "dependencies": {
+    "@nestjs-modules/mailer": "^1.11.2",
     "@nestjs/common": "^10.3.3",
     "@nestjs/core": "^10.3.3",
+    "@nestjs/jwt": "^10.2.0",
     "@nestjs/microservices": "^10.3.3",
     "@nestjs/platform-express": "^10.3.3",
     "@nestjs/swagger": "^7.3.0",
@@ -56,6 +58,7 @@
     "log-node": "^8.0.3",
     "naming-conventions-modeler": "^1.4.4",
     "nest-commander": "^3.12.5",
+    "nodemailer": "^6.9.12",
     "reflect-metadata": "^0.2.1",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20"
@@ -69,6 +72,7 @@
     "@types/jest": "^29.5.12",
     "@types/log": "^6.3.3",
     "@types/node": "^20.11.25",
+    "@types/nodemailer": "^6.4.14",
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",

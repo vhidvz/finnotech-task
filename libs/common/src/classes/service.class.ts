@@ -3,7 +3,7 @@ import { FindManyOptions } from 'typeorm';
 import { Core, Entity } from '../interfaces';
 import { Repository } from './repository.class';
 
-export class CategoriesService<T extends Entity<Core>> {
+export class Service<T extends Entity<Core>> {
   constructor(private readonly repository: Repository<T>) {}
 
   async create(entity: any) {

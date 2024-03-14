@@ -1,5 +1,5 @@
+import { MYSQL_CONFIG, NODE_ENV } from '@app/common/configs';
 import { DynamicModule, Module } from '@nestjs/common';
-import { MYSQL_CONFIG } from '@app/common/configs';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 
@@ -14,7 +14,8 @@ export class MysqlModule {
         TypeOrmModule.forRoot({
           ...options,
           type: 'mysql',
-          entities: [join(__dirname, '../../../common/entities/**/*.entity.ts')],
+          synchronize: !NODE_ENV().IS_PROD,
+          entities: [join(__dirname, '../../../../../**/*.entity.ts')],
         }),
       ],
       providers: [MysqlService],

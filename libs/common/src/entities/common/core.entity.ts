@@ -13,9 +13,6 @@ export class Core implements CoreEntity {
   @Column()
   updated_at?: Date;
 
-  @Column({ array: true })
-  tags?: string[];
-
   @Column()
   description?: string;
 

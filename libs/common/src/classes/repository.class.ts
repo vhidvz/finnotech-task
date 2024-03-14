@@ -11,7 +11,7 @@ export class Repository<T extends Entity<Core>> {
   }
 
   async update(id: string, entity: QueryDeepPartialEntity<T>) {
-    return this.model.update(id, entity);
+    return (await this.model.update(id, entity)).affected;
   }
 
   async find(filter: FindManyOptions<T>) {

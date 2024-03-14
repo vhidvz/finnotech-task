@@ -14,7 +14,7 @@ export class MysqlModule {
         TypeOrmModule.forRoot({
           ...options,
           type: 'mysql',
-          entities: [join(__dirname, '../../../../../src/**/*.entity.ts')],
+          entities: [join(__dirname, '../../../common/entities/**/*.entity.ts')],
         }),
       ],
       providers: [MysqlService],

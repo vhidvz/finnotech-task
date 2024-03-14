@@ -1,9 +1,9 @@
 import { DEFAULT_RAND_CODE_LENGTH } from '@app/common/consts';
 import { Column, PrimaryGeneratedColumn } from 'typeorm';
-import { Core, Entity } from '@app/common/interfaces';
+import { CoreEntity } from '@app/common/interfaces';
 import { code } from '@app/common/utils';
 
-export class CoreEntity implements Entity<Core> {
+export class Core implements CoreEntity {
   @PrimaryGeneratedColumn('uuid')
   id?: string;
 
@@ -13,15 +13,15 @@ export class CoreEntity implements Entity<Core> {
   @Column()
   updated_at?: Date;
 
-  @Column({ default: () => code(DEFAULT_RAND_CODE_LENGTH) })
-  rand?: string;
-
-  @Column({ default: () => String(Date.now()) })
-  timestamp?: string;
-
   @Column({ array: true })
   tags?: string[];
 
   @Column()
   description?: string;
+
+  @Column({ default: () => code(DEFAULT_RAND_CODE_LENGTH) })
+  rand?: string;
+
+  @Column({ default: () => String(Date.now()) })
+  timestamp?: string;
 }

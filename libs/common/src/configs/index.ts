@@ -4,3 +4,4 @@ export * from './redis.config';
 export * from './sentry.config';
 export * from './node-env.config';
 export * from './jwt-secret.config';
+export * from './bcrypt-salt.config';

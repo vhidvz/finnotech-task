@@ -1,17 +1,17 @@
-import { Entity as EntityInterface, User as UserInterface } from '@app/common/interfaces';
+import { UserEntity } from '@app/common/interfaces';
 import { Status } from '@app/common/enums';
 import { Column, Entity } from 'typeorm';
 
-import { CoreEntity } from '../common';
+import { Core } from '../common';
 
 @Entity('users')
-export class User extends CoreEntity implements EntityInterface<UserInterface> {
+export class User extends Core implements UserEntity {
   @Column({ default: Status.Inactive })
-  status: Status;
+  status?: Status;
 
   @Column()
-  email?: string;
+  email: string;
 
   @Column()
-  password?: string;
+  password: string;
 }

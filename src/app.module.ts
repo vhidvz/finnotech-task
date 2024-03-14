@@ -4,9 +4,7 @@ import { HealthModule } from '@app/health';
 import { RedisModule } from '@app/redis';
 import { Module } from '@nestjs/common';
 
-import { AuthModule } from './auth';
-import { ProductsModule } from './products';
-import { UsersModule, ProfilesModule } from './identity';
+import { UsersModule } from './identity';
 
 @Module({
   imports: [
@@ -14,7 +12,7 @@ import { UsersModule, ProfilesModule } from './identity';
     SentryModule.forRoot(SENTRY_CONFIG()),
     HealthModule.forRoot(['disk', 'memory', 'mysql', 'redis']),
 
-    ...[AuthModule, UsersModule, ProfilesModule, ProductsModule],
+    ...[UsersModule],
   ],
 })
 export class AppModule {}

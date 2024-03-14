@@ -1,1 +1,1 @@
-export * from './categories.seed';
+export * from './users.seed';
